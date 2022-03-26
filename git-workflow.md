@@ -11,7 +11,7 @@ notes:
 * uses "master" rather than "main" branch
 
 ## GitHub Workflow
-
+```
 edit / add files via website
     |
     v
@@ -20,10 +20,12 @@ commit changes
     v
 make pull request
 (if code review required)
+```
 
 
 ## Local git Workflow
 
+```
 edit / add files
     |
     v
@@ -38,52 +40,53 @@ push changes: git push
     v
 make a pull request
 (if code review required)
+```
 
 # [Git Branching](https://youtu.be/RGOj5yH7evk?t=1963)
 
 ## Merging a Branch
 go into the repo's dirctory
-```
+```bash
 ck@mycomputer:zz-repo$ cd demo-repo
 ```
 
 switch into git/bash CLI (or another flavor)
 
 list branches
-```
+```bash
 ck@mycomputer zz-repo (main)]$ git branch
 ```
 
 create a new branch
-```
+```bash
 ck@mycomputer zz-repo (feature-readme-instructions)]$ git checkout -b feature-readme-instructions
 ```
 
 add lines to README.md with your preferred editor
-```
+```bash
 ck@mycomputer zz-repo (feature-readme-instructions)]$ vim README.md
 ```
 
 check for changes to branch .. should show that README.md was modified
-```
+```bash
 ck@mycomputer zz-repo (feature-readme-instructions)]$ git status
 ```
 
 add the file, and commit the change
-```
+```bash
 ck@mycomputer zz-repo (feature-readme-instructions)]$ git add README.md
 ck@mycomputer zz-repo (feature-readme-instructions)]$ git commit -m "updated readme"
 ```
 
 go back to main branch and look at README.md .. it won't show changes made in feature-readme-instructions branch
-```
+```bash
 ck@mycomputer zz-repo (feature-readme-instructions)]$ git checkout main
 ck@mycomputer zz-repo (main)]$ cat README.md
 ```
 
-*** you should just before you make your pull request ***
+** you should just before you make your pull request **
 *pull* the repo's main branch so you have the most up to date version
-```
+```bash
  ck@mycomputer zz-repo (main)]$ git pull origin main
 ```
 
@@ -91,7 +94,7 @@ While still in main branch, look at the differences in the code between branches
 this will show text that hasn't been changed in white
 red text is not yet in the current (main) branch
 
-```
+```bash
  ck@mycomputer zz-repo (main)]$ git diff feature-readme-instructions 
 diff --git a/README.md b/README.md
 index d13e4db..1f8597d 100644
@@ -110,7 +113,7 @@ index d13e4db..1f8597d 100644
 ```
 
 here, you could merge, but this would only merge locally
-```
+```bash
 *** DON'T DO THIS !!!!!!!!!!!!!!! ***
  ck@mycomputer zz-repo (main)]$ git merge feature-readme-instructions 
 ```
@@ -118,7 +121,7 @@ here, you could merge, but this would only merge locally
 It's better to push the changes on the branch back to GitHub and then make a pull request
 check status just be be sure.
 
-```
+```bash
  ck@mycomputer zz-repo (main)]$ git checkout feature-readme-instructions
  ck@mycomputer zz-repo (feature-readme-instructions)]$ git status
  ck@mycomputer zz-repo (feature-readme-instructions)]$ git push
@@ -132,7 +135,7 @@ To push the current branch and set the remote as upstream, use
 note:
 ```-u``` is short for ```--set-upstream```  
 
-```
+```bash
  ck@mycomputer zz-repo (feature-readme-instructions)]$ git push -u origin feature-readme-instructions
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
@@ -170,7 +173,7 @@ After the PR is merged you can check the main branch to see that the repo was up
 
 Back to your local computer to clean up .. pull to get the latest repo ... 
 
-```
+```bash
  ck@mycomputer zz-repo (feature-readme-instructions)]$ git checkout main 
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
@@ -193,7 +196,7 @@ Fast-forward
 
 ... and delete the local branch ...
 
-```
+```bash
  ck@mycomputer zz-repo (main)]$ git branch -d feature-readme-instructions 
 Deleted branch feature-readme-instructions (was 9e1369f).
  ck@mycomputer zz-repo (main)]$ git branch
@@ -201,4 +204,16 @@ Deleted branch feature-readme-instructions (was 9e1369f).
 * main
  ck@mycomputer zz-repo (main)]$ 
 ```
+## more to come: notes on handling conflicts
+
+
+
+
+
+
+
+
+
+
+
 
