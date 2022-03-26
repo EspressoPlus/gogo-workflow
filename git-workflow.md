@@ -84,15 +84,14 @@ ck@mycomputer zz-repo (feature-readme-instructions)]$ git checkout main
 ck@mycomputer zz-repo (main)]$ cat README.md
 ```
 
-** you should just before you make your pull request **
-*pull* the repo's main branch so you have the most up to date version
+**PULL** the repo's main branch so you have the most up to date version
 ```bash
  ck@mycomputer zz-repo (main)]$ git pull origin main
 ```
 
-While still in main branch, look at the differences in the code between branches
-this will show text that hasn't been changed in white
-red text is not yet in the current (main) branch
+While still in the main branch, examine differences in code between branches.
+Text that hasn't been changed will be white.
+Red text is not yet in the current (main) branch
 
 ```bash
  ck@mycomputer zz-repo (main)]$ git diff feature-readme-instructions 
