@@ -112,13 +112,14 @@ index d13e4db..1f8597d 100644
 
 ```
 
-here, you could merge, but this would only merge locally
+At this point you could merge, but this would only merge locally ...
+
+**DON'T DO THIS !!!!!!!!!!!!!!!**
 ```bash
-*** DON'T DO THIS !!!!!!!!!!!!!!! ***
  ck@mycomputer zz-repo (main)]$ git merge feature-readme-instructions 
 ```
 
-It's better to push the changes on the branch back to GitHub and then make a pull request
+It's better to **push** the changes on the branch back to GitHub and then make a pull request
 check status just be be sure.
 
 ```bash
