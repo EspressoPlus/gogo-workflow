@@ -241,6 +241,23 @@ Now, only the **main* branch remains.
 
 Merge conflicts happen when multiple users change the same files across multiple branches. This means that conflicts have to be dealt with manually.
 
+To demonstrate, make a new branch called **quick-test** and add something to the index.html
+
+```bash
+ ck@lemuree gogo-workflow (main)]$ git checkout -b quick-test          
+Switched to a new branch 'quick-test'                                  
+
+ ck@lemuree gogo-workflow (quick-test)]$ v index.html
+
+ ck@lemuree gogo-workflow (quick-test)]$ git status                    
+On branch quick-test                                                   
+Changes not staged for commit:                                         
+  (use "git add <file>..." to update what will be committed)           
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html                                         
+                                                                       
+no changes added to commit (use "git add" and/or "git commit -a")      
+ ck@lemuree gogo-workflow (quick-test)]$                               
 
 
 
