@@ -257,7 +257,46 @@ Changes not staged for commit:
         modified:   index.html                                         
                                                                        
 no changes added to commit (use "git add" and/or "git commit -a")      
- ck@lemuree gogo-workflow (quick-test)]$                               
+
+ ck@lemuree gogo-workflow (quick-test)]$ git diff
+ 
+diff --git a/index.html b/index.html
+index 0fd9beb..206cf8b 100644       
+--- a/index.html                    
++++ b/index.html                    
+@@ -1 +1,2 @@                       
+ <div>Hello</div>                   
++<p>world</p>                       
+```
+Shortcut: -am on commit means add modified files .. so no need to do git add . first
+
+```bash
+ ck@lemuree gogo-workflow (quick-test)]$ git commit -am "added world to index.html"
+[quick-test 07654d1] added world to index.html                                     
+ 1 files changed, 1 insertions(+) 
+ ck@lemuree gogo-workflow (quick-test)]$                                           
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
