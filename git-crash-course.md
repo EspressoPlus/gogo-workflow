@@ -1,5 +1,5 @@
 # [Git and GitHub for Beginners - Crash Course - YouTube](https://www.youtube.com/watch?v=RGOj5yH7evk)
-Branching and merging starts [around here](https://youtu.be/RGOj5yH7evk?t=1956).
+Branching and merging starts [here](https://youtu.be/RGOj5yH7evk?t=1956).
 notes:
 * long video, but does a great job .. worth the extra time
 * skip first half if you know git basics already
@@ -240,6 +240,197 @@ Now, only the **main* branch remains.
 49:06
 
 Merge conflicts happen when multiple users change the same files across multiple branches. This means that conflicts have to be dealt with manually.
+
+To demonstrate, make a new branch called **quick-test** and add something to the index.html
+
+```bash
+ ck@lemuree gogo-workflow (main)]$ git checkout -b quick-test          
+Switched to a new branch 'quick-test'                                  
+
+ ck@lemuree gogo-workflow (quick-test)]$ v index.html
+
+ ck@lemuree gogo-workflow (quick-test)]$ git status                    
+On branch quick-test                                                   
+Changes not staged for commit:                                         
+  (use "git add <file>..." to update what will be committed)           
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html                                         
+                                                                       
+no changes added to commit (use "git add" and/or "git commit -a")      
+
+ ck@lemuree gogo-workflow (quick-test)]$ git diff
+ 
+diff --git a/index.html b/index.html
+index 0fd9beb..206cf8b 100644       
+--- a/index.html                    
++++ b/index.html                    
+@@ -1 +1,2 @@                       
+ <div>Hello</div>                   
++<p>world</p>                       
+```
+Shortcut: -am on commit means add modified files .. so no need to do git add . first
+
+```bash
+ ck@lemuree gogo-workflow (quick-test)]$ git commit -am "added world to index.html"
+[quick-test 07654d1] added world to index.html                                     
+ 1 files changed, 1 insertions(+) 
+ ck@lemuree gogo-workflow (quick-test)]$                                           
+```
+
+Go back to main branch .. check that edits **did not** happen in main by looking at index.html ...
+```bash
+ ck@lemuree gogo-workflow (quick-test)]$ git checkout main 
+Switched to branch 'main'                                  
+Your branch is up to date with 'origin/main'.
+
+ ck@lemuree gogo-workflow (main)]$ cat index.html
+<div>Hello</div>                                 
+ ck@lemuree gogo-workflow (main)]$               
+```
+Now, what if you update the line in index.html that was already changed in the quick-update branch?
+```bash
+ ck@lemuree gogo-workflow (main)]$ vim index.html
+ ck@lemuree gogo-workflow (main)]$ git branch
+* main                                                                            
+  quick-test                                 
+                                       
+ ck@lemuree gogo-workflow (main)]$ git checkout quick-test                        
+ 
+error: Your local changes to the following files would be overwritten by checkout:
+        index.html                                                                
+Please commit your changes or stash them before you switch branches.              
+Aborting
+
+ ck@lemuree gogo-workflow (main)]$
+```
+You get an error and shouldn't checkout the quick-update branch because the index.html will overwritten if you do.
+
+(Video doesn't demonstrate **stash**, which puts changes in a temp holding place so you can retrieve them later.)
+
+So, **commit** the changes in **main**.
+```bash
+ ck@lemuree gogo-workflow (main)]$ git commit -am "added there"
+[main d047e3c] added there                                     
+ 1 file changed, 1 insertion(+)                                
+ ck@lemuree gogo-workflow (main)]$ git checkout quick-test     
+Switched to branch 'quick-test'                                
+ ck@lemuree gogo-workflow (quick-test)]$
+```
+
+Now, review the changes ...
+
+```bash
+ ck@lemuree gogo-workflow (quick-test)]$ git diff main
+```
+
+## [Merge quick-test branch into main branch](https://youtu.be/RGOj5yH7evk?t=3208)
+53:28
+
+```bash
+ck@lemuree gogo-workflow (quick-test)]$ git merge main
+```
+Why **merge locally** now? Earlier there was a warning about **not** doing this. Because ...
+
+Main gets updated as others are working on, and doing PRs, for their branches. You won't have those changes in your branch and you don't want to get too far behind **main** while you're working on your own branch because it will make it more difficult to merge changes later.
+
+So, as changes are made to **main** in the GitHub repo, you need to pull those down to your local **main** branch, and then whatever feature branch you're working off of, you'll want to do ```git merge main``` to keep your branch up to date with **main**.
+
+But .. now there's a conflict ...
+```bash
+ ck@lemuree gogo-workflow (quick-test)]$ git merge main
+
+Auto-merging index.html
+
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+ ck@lemuree gogo-workflow (quick-test|MERGING)]$
+                
+```
+**note**: I'm using git-completion shell script, so my prompt shows "MERGING".
+
+You can fix it
+* on GitHub through their interface
+* on your computer by editing the code
+
+Edit index.html:
+```bash
+<div>Hello</d
+<<<<<<< HEAD 
+<p>world</p> 
+=======      
+<p>there</p> 
+>>>>>>> main 
+```
+
+Between ```<<<<<< HEAD``` and ```======``` is the code in the current branch (quick-edit). After ```======``` and before ```>>>>>> main``` is the code coming from the other branch (main) that we're trying to merge in.
+
+Delete the git-added conflict markers, and change the code however you need to (delete lines, or keep it all).
+
+```bash
+ ck@lemuree gogo-workflow (quick-test|MERGING)]$ vim index.html
+ 
+ ... [edited and saved the file here] ...
+ 
+ ck@lemuree gogo-workflow (quick-test|MERGING)]$ git status      
+On branch quick-test                                             
+You have unmerged paths.                                         
+  (fix conflicts and run "git commit")                           
+  (use "git merge --abort" to abort the merge)                   
+                                                                 
+Unmerged paths:                                                  
+  (use "git add <file>..." to mark resolution)                   
+        both modified:   index.html                              
+                                                                 
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ ck@lemuree gogo-workflow (quick-test|MERGING)]$ git diff        
+diff --cc index.html                                             
+index 206cf8b,c2e10f3..0000000                                   
+--- a/index.html                                                 
++++ b/index.html                                                 
+@@@ -1,2 -1,2 +1,3 @@@                                           
+  <div>Hello</div>                                               
+ +<p>world</p>                                                   
++ <p>there</p>                                                   
+
+ ck@lemuree gogo-workflow (quick-test|MERGING)]$ git commit -am "updated with main"
+[quick-test 2905e1b] updated with main                                             
+
+ ck@lemuree gogo-workflow (quick-test)]$                                           
+
+```                                                                 
+Now changes from **main** have been updated in the current **quick-test** branch, so you can continue doing work in the current branch knowing that you have the latest from **main** incorporated into your local branch.
+
+## [Undoing in Git](https://youtu.be/RGOj5yH7evk?t=3389)
+56:29
+* notes on this as needed
+
+
+ 
+
+
+                                                                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
