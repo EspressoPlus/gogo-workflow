@@ -1,6 +1,6 @@
 # [Git and GitHub for Beginners - Crash Course - YouTube](https://www.youtube.com/watch?v=RGOj5yH7evk)
 Branching and merging starts [here](https://youtu.be/RGOj5yH7evk?t=1956).
-notes:
+
 * long video, but does a great job .. worth the extra time
 * skip first half if you know git basics already
 * uses git integrated with VS Code, so you'll need to adapt to your IDE/system
@@ -14,11 +14,11 @@ notes:
 * doing "simple" commits using GitHub UI
 ```
 edit / add files via GitHub website interface
-    |
-    v
+      |
+      v
 commit changes
-    |
-    v
+      |
+      v
 make pull request
 (if code review required)
 ```
@@ -26,7 +26,7 @@ make pull request
 
 ## [Local git Workflow](https://youtu.be/RGOj5yH7evk?t=1900)
 31:40
-* comparision of GitHub Workflow vs Local Git Workflow
+
 ```
  edit/write/ add code 
         |
@@ -44,10 +44,11 @@ make pull request
 (if code review required)
 ```
 
-# [Git Branching](https://youtu.be/RGOj5yH7evk?t=1963)
+## [Git Branching](https://youtu.be/RGOj5yH7evk?t=1963)
 32:43
+
 * "master" is "main"
-* if there is only one branch, everything is in "master"
+* if there is only one branch, everything is in "main"
 * make a new branch .. called "feature" .. at first, both master and feature will be the same
 * if you change feature then switch back to master, you won't see any of the changes on feature
 * branches only track their own changes
@@ -56,50 +57,51 @@ make pull request
 
 ## [Merging a Branch](https://youtu.be/RGOj5yH7evk?t=2162)
 36:02
-go into the repo's dirctory
+
+Go into the repo's dirctory
 ```bash
-ck@mycomputer:zz-repo$ cd demo-repo
+ck@lemuree:zz-repo$ cd demo-repo
 ```
 
-switch into git/bash CLI (or another flavor)
+Switch into git/bash CLI (or another flavor)
 
 list branches
 ```bash
-ck@mycomputer zz-repo (main)]$ git branch
+ck@lemuree zz-repo (main)]$ git branch
 ```
 
-create a new branch
+Create a new branch
 ```bash
-ck@mycomputer zz-repo (main)]$ git checkout -b feature-readme-instructions
+ck@lemuree zz-repo (main)]$ git checkout -b feature-readme-instructions
 ```
 
-add lines to README.md with your preferred editor
+Add lines to README.md with your preferred editor
 ```bash
-ck@mycomputer zz-repo (feature-readme-instructions)]$ vim README.md
+ck@lemuree zz-repo (feature-readme-instructions)]$ vim README.md
 ```
 
-check for changes to branch .. should show that README.md was modified
+Check for changes to branch .. should show that README.md was modified
 ```bash
-ck@mycomputer zz-repo (feature-readme-instructions)]$ git status
+ck@lemuree zz-repo (feature-readme-instructions)]$ git status
 ```
 
-stage the file changes "add", then commit the change
+Stage the file changes "add", then commit the change
 ```bash
-ck@mycomputer zz-repo (feature-readme-instructions)]$ git add README.md
+ck@lemuree zz-repo (feature-readme-instructions)]$ git add README.md
 
-ck@mycomputer zz-repo (feature-readme-instructions)]$ git commit -m "updated readme"
+ck@lemuree zz-repo (feature-readme-instructions)]$ git commit -m "updated readme"
 ```
 
-go back to main branch and look at README.md .. it won't show changes made in feature-readme-instructions branch
+Go back to main branch and look at README.md .. it won't show changes made in feature-readme-instructions branch
 ```bash
-ck@mycomputer zz-repo (feature-readme-instructions)]$ git checkout main
+ck@lemuree zz-repo (feature-readme-instructions)]$ git checkout main
 
-ck@mycomputer zz-repo (main)]$ cat README.md
+ck@lemuree zz-repo (main)]$ cat README.md
 ```
 
 **PULL** the repo's main branch so you have the most up to date version
 ```bash
- ck@mycomputer zz-repo (main)]$ git pull origin main
+ ck@lemuree zz-repo (main)]$ git pull origin main
 ```
 
 While still in the main branch, examine differences in code between branches.
@@ -107,7 +109,7 @@ Text that hasn't been changed will be white.
 Lines starting with "-' and red text are not yet in the current (main) branch
 
 ```bash
- ck@mycomputer zz-repo (main)]$ git diff feature-readme-instructions 
+ ck@lemuree zz-repo (main)]$ git diff feature-readme-instructions 
 
 diff --git a/README.md b/README.md
 index d13e4db..1f8597d 100644
@@ -129,31 +131,31 @@ At this point you could merge, but this would only merge locally ...
 
 **DON'T DO THIS !!!!!!!!!!!!!!!**
 ```bash
- ck@mycomputer zz-repo (main)]$ git merge feature-readme-instructions 
+ ck@lemuree zz-repo (main)]$ git merge feature-readme-instructions 
 ```
 
 It's better to **push** the changes on the branch back to GitHub and then make a pull request
 check status just be be sure.
 
 ```bash
- ck@mycomputer zz-repo (main)]$ git checkout feature-readme-instructions
+ ck@lemuree zz-repo (main)]$ git checkout feature-readme-instructions
 
- ck@mycomputer zz-repo (feature-readme-instructions)]$ git status
+ ck@lemuree zz-repo (feature-readme-instructions)]$ git status
 
- ck@mycomputer zz-repo (feature-readme-instructions)]$ git push
+ ck@lemuree zz-repo (feature-readme-instructions)]$ git push
 
 fatal: The current branch feature-readme-instructions has no upstream branch.
 To push the current branch and set the remote as upstream, use
 
     git push --set-upstream origin feature-readme-instructions
 
- ck@mycomputer zz-repo (feature-readme-instructions)]$ 
+ ck@lemuree zz-repo (feature-readme-instructions)]$ 
 ```
 note:
 ```-u``` is short for ```--set-upstream```  
 
 ```bash
- ck@mycomputer zz-repo (feature-readme-instructions)]$ git push -u origin feature-readme-instructions
+ ck@lemuree zz-repo (feature-readme-instructions)]$ git push -u origin feature-readme-instructions
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 8 threads
@@ -201,11 +203,11 @@ After the PR is merged you can check the main branch to see that the repo was up
 Go back to your local computer CLI to clean up. Do a **pull** to get the latest repo ... 
 
 ```bash
- ck@mycomputer zz-repo (feature-readme-instructions)]$ git checkout main 
+ ck@lemuree zz-repo (feature-readme-instructions)]$ git checkout main 
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
 
- ck@mycomputer zz-repo (main)]$ git pull 
+ ck@lemuree zz-repo (main)]$ git pull 
 remote: Enumerating objects: 1, done.
 remote: Counting objects: 100% (1/1), done.
 remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
@@ -216,7 +218,7 @@ Updating 74697f6..48a1ae0
 Fast-forward
  README.md | 5 +++++
  1 file changed, 5 insertions(+)
- ck@mycomputer zz-repo (main)]$ git branch
+ ck@lemuree zz-repo (main)]$ git branch
   feature-readme-instructions
 * main
 ```
@@ -224,16 +226,16 @@ Fast-forward
 Delete the local branch because, with this approach, you don't re-use branches .. you just make a new one. So, delete the branch ...
 
 ```bash
- ck@mycomputer zz-repo (main)]$ git branch -d feature-readme-instructions 
+ ck@lemuree zz-repo (main)]$ git branch -d feature-readme-instructions 
 
 Deleted branch feature-readme-instructions (was 9e1369f).
 
- ck@mycomputer zz-repo (main)]$ git branch
+ ck@lemuree zz-repo (main)]$ git branch
 * main
 
- ck@mycomputer zz-repo (main)]$ 
+ ck@lemuree zz-repo (main)]$ 
 ```
-Now, only the **main* branch remains.
+Now, only the **main** branch remains.
 
 
 ## [What about conflicts?](https://youtu.be/RGOj5yH7evk?t=2946)
@@ -268,7 +270,7 @@ index 0fd9beb..206cf8b 100644
  <div>Hello</div>                   
 +<p>world</p>                       
 ```
-Shortcut: -am on commit means add modified files .. so no need to do git add . first
+Shortcut: ```-am``` on commit means add modified files .. so no need to do ```git add . ``` first
 
 ```bash
  ck@lemuree gogo-workflow (quick-test)]$ git commit -am "added world to index.html"
@@ -303,6 +305,7 @@ Aborting
 
  ck@lemuree gogo-workflow (main)]$
 ```
+
 You get an error and shouldn't checkout the quick-update branch because the index.html will overwritten if you do.
 
 (Video doesn't demonstrate **stash**, which puts changes in a temp holding place so you can retrieve them later.)
@@ -347,7 +350,7 @@ Automatic merge failed; fix conflicts and then commit the result.
  ck@lemuree gogo-workflow (quick-test|MERGING)]$
                 
 ```
-**note**: I'm using git-completion shell script, so my prompt shows "MERGING".
+**note**: I'm using git-completion shell script, so my prompt shows ```branch|MERGING```.
 
 You can fix it
 * on GitHub through their interface
