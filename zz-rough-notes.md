@@ -9,6 +9,7 @@
 # guides
 
 [Git basics - a general workflow](https://gist.github.com/blackfalcon/8428401)
+* good guide, but goes beyond what we will (probably) need
 
 [Gitflow Workflow | Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 
@@ -25,6 +26,7 @@ notes:
 * generic: branching, merging, pull request
 
 
+### [Git basics - a general workflow](https://gist.github.com/blackfalcon/8428401)
 ```
 git clone git@github.com:EspressoPlus/gogoMoney.git
 
@@ -70,8 +72,7 @@ git pull
 
 
 
-# Git and GitHub for Beginners - Crash Course
-https://youtu.be/RGOj5yH7evk?t=1956
+# [Git and GitHub for Beginners - Crash Course](https://youtu.be/RGOj5yH7evk?t=1956)
 * uses git integreated with VS Code
 * git commands are agnostic and portable
 * uses "master" rather than "main" branch

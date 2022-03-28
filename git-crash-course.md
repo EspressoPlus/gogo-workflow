@@ -1,18 +1,19 @@
-
-# [Git basics - a general workflow](https://gist.github.com/blackfalcon/8428401)
-* good guide, but goes beyond what we will (probably) need
-
 # [Git and GitHub for Beginners - Crash Course - YouTube](https://www.youtube.com/watch?v=RGOj5yH7evk)
-Branching and merging starts [here](https://youtu.be/RGOj5yH7evk?t=1956).
+Branching and merging starts [around here](https://youtu.be/RGOj5yH7evk?t=1956).
 notes:
 * long video, but does a great job .. worth the extra time
 * skip first half if you know git basics already
 * uses git integrated with VS Code, so you'll need to adapt to your IDE/system
+* the VS Code setup shows current local branch in the CLI .. probably uses something like [https://github.com/git/git/tree/master/contrib/completion], described [https://gist.github.com/ivanoats/1823034](here)
 * uses "master" rather than "main" branch
+* uses 
 
-## GitHub Workflow
+## [GitHub Workflow](https://www.youtube.com/watch?v=RGOj5yH7evk&t=1821s)
+30:21
+* summarizes video up to this point
+* doing "simple" commits using GitHub UI
 ```
-edit / add files via website
+edit / add files via GitHub website interface
     |
     v
 commit changes
@@ -23,28 +24,38 @@ make pull request
 ```
 
 
-## Local git Workflow
-
+## [Local git Workflow](https://youtu.be/RGOj5yH7evk?t=1900)
+31:40
+* comparision of GitHub Workflow vs Local Git Workflow
 ```
-edit / add files
-    |
-    v
-stage changes: git add
-    |
-    v
-commit changes: git commit
-    |
-    v
-push changes: git push
-    |
-    v
-make a pull request
+ edit/write/ add code 
+        |
+        v
+ git add: stage changes
+        |
+        v
+ git commit: commit changes
+        |
+        v
+ git push: push changes
+        |
+        v
+ make a pull request
 (if code review required)
 ```
 
 # [Git Branching](https://youtu.be/RGOj5yH7evk?t=1963)
+32:43
+* "master" is "main"
+* if there is only one branch, everything is in "master"
+* make a new branch .. called "feature" .. at first, both master and feature will be the same
+* if you change feature then switch back to master, you won't see any of the changes on feature
+* branches only track their own changes
+* branches can't see/know changes in other branches
+* why branch? so you can work on code without affecting master
 
-## Merging a Branch
+## [Merging a Branch](https://youtu.be/RGOj5yH7evk?t=2162)
+36:02
 go into the repo's dirctory
 ```bash
 ck@mycomputer:zz-repo$ cd demo-repo
@@ -59,7 +70,7 @@ ck@mycomputer zz-repo (main)]$ git branch
 
 create a new branch
 ```bash
-ck@mycomputer zz-repo (feature-readme-instructions)]$ git checkout -b feature-readme-instructions
+ck@mycomputer zz-repo (main)]$ git checkout -b feature-readme-instructions
 ```
 
 add lines to README.md with your preferred editor
@@ -72,15 +83,17 @@ check for changes to branch .. should show that README.md was modified
 ck@mycomputer zz-repo (feature-readme-instructions)]$ git status
 ```
 
-add the file, and commit the change
+stage the file changes "add", then commit the change
 ```bash
 ck@mycomputer zz-repo (feature-readme-instructions)]$ git add README.md
+
 ck@mycomputer zz-repo (feature-readme-instructions)]$ git commit -m "updated readme"
 ```
 
 go back to main branch and look at README.md .. it won't show changes made in feature-readme-instructions branch
 ```bash
 ck@mycomputer zz-repo (feature-readme-instructions)]$ git checkout main
+
 ck@mycomputer zz-repo (main)]$ cat README.md
 ```
 
@@ -91,10 +104,11 @@ ck@mycomputer zz-repo (main)]$ cat README.md
 
 While still in the main branch, examine differences in code between branches.
 Text that hasn't been changed will be white.
-Red text is not yet in the current (main) branch
+Lines starting with "-' and red text are not yet in the current (main) branch
 
 ```bash
  ck@mycomputer zz-repo (main)]$ git diff feature-readme-instructions 
+
 diff --git a/README.md b/README.md
 index d13e4db..1f8597d 100644
 --- a/README.md
@@ -123,8 +137,11 @@ check status just be be sure.
 
 ```bash
  ck@mycomputer zz-repo (main)]$ git checkout feature-readme-instructions
+
  ck@mycomputer zz-repo (feature-readme-instructions)]$ git status
+
  ck@mycomputer zz-repo (feature-readme-instructions)]$ git push
+
 fatal: The current branch feature-readme-instructions has no upstream branch.
 To push the current branch and set the remote as upstream, use
 
@@ -142,6 +159,7 @@ Counting objects: 100% (5/5), done.
 Delta compression using up to 8 threads
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 404 bytes | 404.00 KiB/s, done.
+
 Total 3 (delta 0), reused 0 (delta 0)
 remote: 
 remote: Create a pull request for 'feature-readme-instructions' on GitHub by visiting:
@@ -157,11 +175,17 @@ Branch 'feature-readme-instructions' set up to track remote branch 'feature-read
 
 It's a request to have your code pulled into another branch.
 
-In the example above, the request is for the branch feature-readme-instructions to be pulled into branch main.
+In the example above, the request is for the branch *feature-readme-instructions* to be pulled into branch *main* .. this is making a PR from the feature branch to the main branch.
 
-Once there is a PR, anyone with access to the repo on GitHub can review/comment/ask for changes to the code that is from the branch that made the PR.
+Once there is a PR, anyone with access to the repo on GitHub can review/comment/ask for changes/updates to the code that is from the branch that made the PR.
 
-You can copy the URL from the command-line output above, or you can just go to the GitHub repo and you'll see a notification about the recent pull request (green button: 'Compare & pull request')
+After you make a PR you can update the code by making additional commits and pushing them up to GitHub, as long as the commits are on the same branch where the PR is happening.
+
+Once the PR is merged, it's standard practice to delete the feature branch and switch back to the main branch. When you want to make additional changes you follow the same order of operations: **create a new feature branch, commit, PR, merge to main**.
+
+## [Handle PR via GitHub interface](https://youtu.be/RGOj5yH7evk?t=2675)
+44:35
+You can copy the URL from the command-line output above, or you can just go to the GitHub repo and you'll see a notification about the recent PR (green button: 'Compare & pull request')
 
 Give the PR a title and provide bullets to describe the changes, the click the green 'Create pull request' button.
 
@@ -171,12 +195,16 @@ Once all the comments and conversations are "complete", clicking the 'Merge pull
 
 After the PR is merged you can check the main branch to see that the repo was updated properly.
 
-Back to your local computer to clean up .. pull to get the latest repo ... 
+## [Back on local computer CLI](https://youtu.be/RGOj5yH7evk?t=2865)
+47:45
+
+Go back to your local computer CLI to clean up. Do a **pull** to get the latest repo ... 
 
 ```bash
  ck@mycomputer zz-repo (feature-readme-instructions)]$ git checkout main 
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
+
  ck@mycomputer zz-repo (main)]$ git pull 
 remote: Enumerating objects: 1, done.
 remote: Counting objects: 100% (1/1), done.
@@ -190,21 +218,28 @@ Fast-forward
  1 file changed, 5 insertions(+)
  ck@mycomputer zz-repo (main)]$ git branch
   feature-readme-instructions
-  front-controller
 * main
 ```
 
-... and delete the local branch ...
+Delete the local branch because, with this approach, you don't re-use branches .. you just make a new one. So, delete the branch ...
 
 ```bash
  ck@mycomputer zz-repo (main)]$ git branch -d feature-readme-instructions 
+
 Deleted branch feature-readme-instructions (was 9e1369f).
+
  ck@mycomputer zz-repo (main)]$ git branch
-  front-controller
 * main
+
  ck@mycomputer zz-repo (main)]$ 
 ```
-## more to come: notes on handling conflicts
+Now, only the **main* branch remains.
+
+
+## [What about conflicts?](https://youtu.be/RGOj5yH7evk?t=2946)
+49:06
+
+Merge conflicts happen when multiple users change the same files across multiple branches. This means that conflicts have to be dealt with manually.
 
 
 
