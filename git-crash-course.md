@@ -28,7 +28,7 @@ make pull request
 31:40
 
 ```
- edit/write/ add code 
+ edit/write/add code 
         |
         v
  git add: stage changes
@@ -134,6 +134,7 @@ At this point you could merge, but this would only merge locally ...
  ck@lemuree zz-repo (main)]$ git merge feature-readme-instructions 
 ```
 
+**DO DO THIS**
 It's better to **push** the changes on the branch back to GitHub and then make a pull request
 check status just be be sure.
 
