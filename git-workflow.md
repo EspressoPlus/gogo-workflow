@@ -13,7 +13,8 @@ Many of these notes come from this [Git and GitHub for Beginners](https://youtu.
 git clone git@github.com:EspressoPlus/gogoMoney.git
 ```
 * add/import the project to Eclipse EE workspace and open it
-* in Eclipse you should see it named gogoMoney ```[gogoMoney main]```, like this:
+* in Eclipse you should see it named gogoMoney ```[gogoMoney main]```
+
 ![gogoMoney_main.png](https://github.com/EspressoPlus/gogo-workflow/blob/main/gogoMoney_main.png)
 
 
@@ -29,8 +30,10 @@ git branch
 ```
 
 ## Local | Eclipse | how branch appears in GUI
-* if you open the project in Eclipse you should see that it has switched to the local branch that you are working on: ```[gogoMoney test-back-dao]```, like this:
+* if you open the project in Eclipse you should see that it has switched to the local branch that you are working on: ```[gogoMoney test-back-dao]```
+
 ![gogoMoney_test-back-dao.png](https://github.com/EspressoPlus/gogo-workflow/blob/main/gogoMoney_test-back-dao.png)
+
 * you may have to close/open/refresh the Eclipse project if it doesn't show like this
 * DO NOT WORK ON YOUR CODE UNTIL **ECLIPSE** SHOWS THAT YOU ARE IN THE CORRECT BRANCH
 
@@ -38,6 +41,7 @@ git branch
 * in Eclipse, edit your code and save it
 * you could test by editing a line (e.g. add a comment) or adding a dummy package
 * **note**: Eclipse puts a **>** in front of packages and files that have been changed
+
 ![gogoMoney_Eclipse-w-changes.png](https://github.com/EspressoPlus/gogo-workflow/blob/main/gogoMoney_Eclipse-w-changes.png)
 
 
