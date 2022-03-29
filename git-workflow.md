@@ -5,10 +5,10 @@ Many of these notes come from this [Git and GitHub for Beginners](https://youtu.
 
 
 ## Local | CLI | first time only: getting the repo to local computer
-* make a directory to hold the repo/project
-* clone repo to your local computer into the directory
-* commands depend on whether you do http, ssh, or GitHub CLI
-* ssh approach:
+Make a directory to hold the repo/project.
+Clone repo to your local computer into the directory.
+Commands depend on whether you do http, ssh, or GitHub CLI.
+ssh approach:
 ```bash
 git clone git@github.com:EspressoPlus/gogoMoney.git
 ```
@@ -30,7 +30,7 @@ git branch
 ```
 
 ## Local | Eclipse | how branch appears in GUI
-* if you open the project in Eclipse you should see that it has switched to the local branch that you are working on: ```[gogoMoney test-back-dao]```
+If you open the project in Eclipse you should see that it has switched to the local branch that you are working on: ```[gogoMoney test-back-dao]```
 
 ![gogoMoney_test-back-dao.png](https://github.com/EspressoPlus/gogo-workflow/blob/main/gogoMoney_test-back-dao.png)
 
