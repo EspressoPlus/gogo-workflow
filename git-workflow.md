@@ -74,12 +74,12 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 ## Local | CLI | pull main
-* this is **CRITICAL** because you need to have the most up-to-date version of **main** from GitHub
+This is **CRITICAL** because you need to have the most up-to-date version of **main** from GitHub
 ```bash
 git checkout main
 git pull origin main
 ```
-* check how your branch differs from main .. you should see all the differences in your code
+Check how your branch differs from main .. you should see all the differences in your code
 ```bash
 git diff test-back-dao
 ```
