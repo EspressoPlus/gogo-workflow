@@ -1,7 +1,7 @@
 # git-workflow for gogoMoney
 Many of these notes come from this [Git and GitHub for Beginners](https://youtu.be/RGOj5yH7evk?t=1956) video tutorial.
 
-[git-crash-course.md](need link) has notves with times form important sections of the tutorial
+[git-crash-course.md](https://github.com/EspressoPlus/gogo-workflow/blob/main/git-crash-course.md) has notes with times form important sections of the tutorial
 
 
 ## Local | CLI | first time only: getting the repo to local computer
