@@ -1,6 +1,6 @@
 # gogo-workflow
 
-[git-workflow.md](https://github.com/EspressoPlus/gogo-workflow/blob/main/git-workflow.md) outlines the steps that we should follow when branching/merging. It includes graphics and examples wrt how Eclipse reflects git branches. 
+[git-feature-branching.md](https://github.com/EspressoPlus/gogo-workflow/blob/main/git-feature-branching.md) outlines the steps that we should follow when branching/merging. It includes graphics and examples wrt how Eclipse reflects git branches. 
 
 The first video below (Crash Course) is worth watching. The notes in git-workflow.md are taken from this video. Other links are for refernce .. use 'em if you want to learn more. 
 
