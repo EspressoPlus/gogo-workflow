@@ -1,8 +1,8 @@
 # gogo-workflow
 
-See [git-workflow](https://github.com/EspressoPlus/gogo-workflow/blob/main/git-workflow.md) for details.
+[git-workflow.md](https://github.com/EspressoPlus/gogo-workflow/blob/main/git-workflow.md) outlines the process that we should follow with gogoMoney development. The first video below (Crash Course) is worth watching. 
 
-# videos
+### videos
 [Git and GitHub for Beginners - Crash Course - YouTube](https://youtu.be/RGOj5yH7evk?t=1956) 
 * this is the one to watch
 * link starts at 32:36
@@ -11,7 +11,7 @@ See [git-workflow](https://github.com/EspressoPlus/gogo-workflow/blob/main/git-w
 [How to use GIT when working with a team? - YouTube](https://www.youtube.com/watch?v=jhtbhSpV5YA)
 
 
-# guides
+### guides
 [Git basics - a general workflow](https://gist.github.com/blackfalcon/8428401)
 * good guide, but goes beyond what we will (probably) need
 
