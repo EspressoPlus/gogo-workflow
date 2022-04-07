@@ -24,3 +24,6 @@ The first video below (Crash Course) is worth watching. The notes in git-workflo
 [git - the simple guide - no deep shit!](https://rogerdudler.github.io/git-guide/)
 
 [Git cheat sheet | Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+
+### fixing conflicts after implementing gitignore
+[gitignore, merging, tracking notes](https://github.com/EspressoPlus/gogo-workflow/blob/main/git-gitignore-tracking.md)
