@@ -1,3 +1,46 @@
+```
+ git clone UrlToTheRepo: clone the repo
+        |
+        v
+ git checkout -b feature-branch: make a local branch
+        |
+        v
+ Eclipse/IDE: edit/write/add code 
+        |
+        v
+ git status: check status
+        |
+        v
+ git checkout main: back to main
+        |
+        v
+ git pull origin main: get latest main
+        |
+        v
+ git diff feature-branch: review differences between main and feature-branch
+        |
+        v
+ git checkout feature-branch: back to feature-branch
+        |
+        v
+ git add . | git commit : add and commit feature-branch changes
+        |
+        v
+ git push -u origin feature-branch: push changes upstream
+        |
+        v
+ GitHub make a pull request
+        |
+        v
+ GitHub someone else reviews pull request and accepts/rejects/asks for changes
+        |
+        v
+ git branch -d feature-branch: delete local copy of feature-branch
+ 
+
+```
+
+
 # Feature Branching for gogoMoney
 Many of these notes come from this [Git and GitHub for Beginners](https://youtu.be/RGOj5yH7evk?t=1956) video tutorial.
 
@@ -44,7 +87,7 @@ DO NOT WORK ON YOUR CODE UNTIL **ECLIPSE** SHOWS THAT YOU ARE IN THE CORRECT BRA
 ## Local | Eclipse | edit, update, add code
 In Eclipse, edit your code and save it. You could test by editing a line (e.g. add a comment) or adding a dummy package.
 
-**note**: Eclipse puts a **>** in front of packages and files that have been changed
+**note**: Eclipse puts a ```**>**``` in front of packages and files that have been changed
 
 ![gogoMoney_Eclipse-w-changes.png](https://github.com/EspressoPlus/gogo-workflow/blob/main/gogoMoney_Eclipse-w-changes.png)
 
@@ -95,8 +138,23 @@ git commit -m "test back dao branch experiment"
 git status
 ```
 
+---
+>>## Push the feature branch, then make a Pull Request (PR)
+>>The Crash Course video, [from 43:24 to 44:35](https://youtu.be/RGOj5yH7evk?t=2604), explains the process of **pushing** your branch then making a **pull request**.
+>>
+>>A pull request is a request to have your code pulled into another branch.
+>>
+>>In the example below, the feature branch *test-back-dao* will be **pushed** and then a **pull request** will be made for that branch to be **pulled** ( = fetch + merge) into the *main* branch.
+>>
+>>Once there is a PR, anyone with access to the repo on GitHub can review/comment/ask for changes to the code from the branch that made the PR.
+>>
+>>Note that even after there is a PR (but the branch is not yet merged) the branch's code can still be updated by making additional commits and pushing them up to GitHub. These commits will be reflected on GitHub as long as the commits are on the same branch where the PR is happening.
+>>
+---
+
+
 ## Local | CLI | push your branch upstream
-**Push** changes upstream 
+Your branch now includes all of your code changes. Now **push** your branch upstream. This makes the branch available on github.
 ```bash
  ck@lemuree gogoMoney (test-back-dao)]$ git push
 
@@ -119,67 +177,40 @@ To github.com:EspressoPlus/gogoMoney.git
 Branch 'test-back-dao' set up to track remote branch 'test-back-dao' from 'origin'.
 ```
 
-## What is a Pull Request?
-
-The Crash Course video, [from 43:24 to 44:35](https://youtu.be/RGOj5yH7evk?t=2604), explains this well.
-
-It's a request to have your code pulled into another branch.
-
-From the man page:
-```
-Incorporates changes from a remote repository into the current branch. In its default mode, git pull is shorthand for git fetch followed by git merge FETCH_HEAD.
-
-More precisely, git pull runs git fetch with the given parameters and calls git merge to merge the retrieved branch heads into the current branch. With --rebase, it runs git rebase instead of git merge.
-```
-
-
-In the example above, the request is for the branch *feature-readme-instructions* to be pulled into branch *main* .. this is making a PR from the feature branch to the main branch.
-
-Once there is a PR, anyone with access to the repo on GitHub can review/comment/ask for changes/updates to the code that is from the branch that made the PR.
-
-After you make a PR you can update the code by making additional commits and pushing them up to GitHub, as long as the commits are on the same branch where the PR is happening.
-
-Once the PR is merged, it's standard practice to delete the feature branch and switch back to the main branch. When you want to make additional changes you follow the same order of operations: **create a new feature branch, commit, PR, merge to main**.
-
-
 ## GitHub | Web Ui | Pull Request & Merge
-Watch [this section](https://youtu.be/RGOj5yH7evk?t=2675) of the video tutorial for a demonstration. Clayton can demo this too. 
+Watch the Crash Course video [from 44:35  to 45:45](https://youtu.be/RGOj5yH7evk?t=2675) for a demonstration.
 
-Afterwards, check that changes are in **main**.
+Afterwards, check that the changes actually happened in the **main** branch.
+
+
+## Make a Pull Request
+After you push your branch successfully, there will be a notification at the top of the GitHub repo (on the website) that reads "Your recently pushed branches:", then your branch's name, and a green 🟢Compare & pull request🟢 button.
+
+Click the 🟢green🟢 button and you'll be directed to a **Open a pull request** page. Go through the process of creating the request, described below.
+
 
 ## Local | CLI | pull from main and delete local branch
-Pull so you get latest main branch.
+Locally, make sure you're in the main branch, then do a pull so you get latest version of the main branch.
 
-Now, locally, you'll see the changes that have been merged into main.
+Now you'll see the changes that have been merged into main.
 ```bash
 git checkout main
 git pull
 ```
-No need to keep the branch (if you don't want to) because changes are now incorporated into main branch.
+There is no need to keep the feature branch that you made (unless you want to for .. reasons) because the feature branch's changes are now incorporated into main branch.
 ```bash
  ck@lemuree gogoMoney (main)]$ git branch -d test-back-dao
 Deleted branch test-back-dao (was b1ba737).
  ck@lemuree gogoMoney (main)]$ git branch 
 * main
 ```
-Now only the main branch remains
+Now only the main branch remains.
 
 
 
-## other stuff: update this to match this file, then move to top
-```
- edit/write/add code 
-        |
-        v
- git add: stage changes
-        |
-        v
- git commit: commit changes
-        |
-        v
- git push: push changes
-        |
-        v
- make a pull request
-(if code review required)
-```
+
+
+
+
+
+
