@@ -1,3 +1,4 @@
+# Overview:
 ```
  git clone UrlToTheRepo: clone the repo
         |
@@ -29,15 +30,13 @@
  git push -u origin feature-branch: push changes upstream
         |
         v
- GitHub make a pull request
+ GitHub: make a pull request
         |
         v
- GitHub someone else reviews pull request and accepts/rejects/asks for changes
+ GitHub: someone else reviews pull request and accepts/rejects/asks for changes
         |
         v
  git branch -d feature-branch: delete local copy of feature-branch
- 
-
 ```
 
 
