@@ -95,7 +95,7 @@ git commit -m "test back dao branch experiment"
 git status
 ```
 
-## Local | CLI | push changes
+## Local | CLI | push your branch upstream
 **Push** changes upstream 
 ```bash
  ck@lemuree gogoMoney (test-back-dao)]$ git push
@@ -118,6 +118,28 @@ To github.com:EspressoPlus/gogoMoney.git
    0172900..b1ba737  test-back-dao -> test-back-dao
 Branch 'test-back-dao' set up to track remote branch 'test-back-dao' from 'origin'.
 ```
+
+## What is a Pull Request?
+
+The Crash Course video, [from 43:24 to 44:35](https://youtu.be/RGOj5yH7evk?t=2604), explains this well.
+
+It's a request to have your code pulled into another branch.
+
+From the man page:
+```
+Incorporates changes from a remote repository into the current branch. In its default mode, git pull is shorthand for git fetch followed by git merge FETCH_HEAD.
+
+More precisely, git pull runs git fetch with the given parameters and calls git merge to merge the retrieved branch heads into the current branch. With --rebase, it runs git rebase instead of git merge.
+```
+
+
+In the example above, the request is for the branch *feature-readme-instructions* to be pulled into branch *main* .. this is making a PR from the feature branch to the main branch.
+
+Once there is a PR, anyone with access to the repo on GitHub can review/comment/ask for changes/updates to the code that is from the branch that made the PR.
+
+After you make a PR you can update the code by making additional commits and pushing them up to GitHub, as long as the commits are on the same branch where the PR is happening.
+
+Once the PR is merged, it's standard practice to delete the feature branch and switch back to the main branch. When you want to make additional changes you follow the same order of operations: **create a new feature branch, commit, PR, merge to main**.
 
 
 ## GitHub | Web Ui | Pull Request & Merge

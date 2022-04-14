@@ -1,3 +1,6 @@
+note: each of the heading (blue) are links to associated sections in the video
+
+
 # [Git and GitHub for Beginners - Crash Course - YouTube](https://www.youtube.com/watch?v=RGOj5yH7evk)
 Branching and merging starts [here](https://youtu.be/RGOj5yH7evk?t=1956).
 
@@ -135,8 +138,7 @@ At this point you could merge, but this would only merge locally ...
 ```
 
 **DO DO THIS**
-It's better to **push** the changes on the branch back to GitHub and then make a pull request
-check status just be be sure.
+It's better to **push** the changes on the branch back to GitHub and then make a pull request and check status just be be sure.
 
 ```bash
  ck@lemuree zz-repo (main)]$ git checkout feature-readme-instructions
@@ -180,7 +182,7 @@ It's a request to have your code pulled into another branch.
 
 In the example above, the request is for the branch *feature-readme-instructions* to be pulled into branch *main* .. this is making a PR from the feature branch to the main branch.
 
-Once there is a PR, anyone with access to the repo on GitHub can review/comment/ask for changes/updates to the code that is from the branch that made the PR.
+Once there is a PR, anyone with access to the repo on GitHub can review/comment/ask for changes to the code in the branch that made the PR.
 
 After you make a PR you can update the code by making additional commits and pushing them up to GitHub, as long as the commits are on the same branch where the PR is happening.
 
