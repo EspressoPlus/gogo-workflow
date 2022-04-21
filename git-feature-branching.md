@@ -1,42 +1,49 @@
 # Overview:
+This summarizes section of the **Git and GitHub for Beginners - Crash Course** where they work through the process of making a local branch, making a pull request, then merging with the main branch, starting at [35:55](https://youtu.be/RGOj5yH7evk?t=2155).
+
 ```
- git clone UrlToTheRepo: clone the repo
+ git clone UrlToTheRepo             # clone the repo
+ [ you're currently                 # necessary only if you don't have the repo locally
+   in the *main* branch ]
         |
         v
- git checkout -b feature-branch: make a local branch
+ git checkout -b feature-branch     # make feature-branch (local) and switch to it
         |
         v
- Eclipse/IDE: edit/write/add code 
+ Eclipse/IDE                        # edit/write/add code 
         |
         v
- git status: check status
+ git status                         # list changed/added files
         |
         v
- git checkout main: back to main
+ git add .                          # saves all changes to feature-branch
         |
         v
- git pull origin main: get latest main
+ git commit -m "your message"       # commit feature-branch changes
         |
         v
- git diff feature-branch: review differences between main and feature-branch
+ git checkout main                  # back to main
         |
         v
- git checkout feature-branch: back to feature-branch
+ git pull origin main               # get latest main
         |
         v
- git add . | git commit : add and commit feature-branch changes
+ git diff feature-branch            # review differences: main vs feature-branch
         |
         v
- git push -u origin feature-branch: push changes upstream
+ git checkout feature-branch        # back to feature-branch
         |
         v
- GitHub: make a pull request
+ git push -u origin feature-branch  # push changes upstream
+        |
+        v
+ GitHub: make a pull request        # 'Compare & pull request' green button
         |
         v
  GitHub: someone else reviews pull request and accepts/rejects/asks for changes
         |
         v
- git branch -d feature-branch: delete local copy of feature-branch
+ git branch -d feature-branch       # delete local copy of feature-branch
 ```
 
 
@@ -86,7 +93,7 @@ DO NOT WORK ON YOUR CODE UNTIL **ECLIPSE** SHOWS THAT YOU ARE IN THE CORRECT BRA
 ## Local | Eclipse | edit, update, add code
 In Eclipse, edit your code and save it. You could test by editing a line (e.g. add a comment) or adding a dummy package.
 
-**note**: Eclipse puts a ```**>**``` in front of packages and files that have been changed
+Eclipse puts a **```>```** in front of packages and files that have been changed
 
 ![gogoMoney_Eclipse-w-changes.png](https://github.com/EspressoPlus/gogo-workflow/blob/main/gogoMoney_Eclipse-w-changes.png)
 
@@ -115,6 +122,17 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 ```
 
+## Local | CLI | add and commit changes
+Switch back to your branch and confirm that everything is in order: check status, add your files, check status again.
+```bash
+git checkout test-back-dao
+git status
+git add .
+git commit -m "test back dao branch experiment"
+git status
+```
+
+
 ## Local | CLI | pull main
 This is **CRITICAL** because you need to have the most up-to-date version of **main** from GitHub
 ```bash
@@ -124,17 +142,6 @@ git pull origin main
 Check how your branch differs from main. You should see all the differences in your code
 ```bash
 git diff test-back-dao
-```
-
-
-## Local | CLI | add and commit changes
-Switch back to your branch and confirm that everything is in order: check status, add your files, check status again.
-```bash
-git checkout test-back-dao
-git status
-git add .
-git commit -m "test back dao branch experiment"
-git status
 ```
 
 ---
